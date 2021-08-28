@@ -20,7 +20,9 @@ void setup() {
   servo.attach(8); // Declare the pin in which the servo motor is attached
   pinMode(trigPin, OUTPUT); // Define that the trigPin is for output
   pinMode(echoPin, INPUT); // Define that the echoPin is for input
-  lcd.print("    USE  ME");// Print "USE ME"
+  lcd.print(" Safely Dispose");
+  lcd.setCursor(2, 1);
+  lcd.print(" Your Waste");
   servo.write(0);// Close the lid of the dustbin
 }
  
@@ -42,18 +44,15 @@ void loop() {
   Serial.println(distance);
   if (distance <= 20 && distance >= 2) { // Check if the distance is lesser than 20 cm and greater than 2 cm and,
                                          //if yes open the lid of the dustbin and print the message "Thanks For Keeping Our Environment Clean".
-    lcd.clear(); 
-    servo.write(90);
-     delay(3000);
-     lcd.print("Thanks For Keeping Our Environment Clean");
-  for (int positionCounter = 0; positionCounter < 24; positionCounter++) {
-    // scroll one position left:
-    lcd.scrollDisplayLeft();
-    // wait a bit:
-    delay(300);
-  }
+   lcd.clear(); 
+   servo.write(90);
+   delay(3000);
+   lcd.print("Thanks For Using");
+   delay(2000);
    lcd.clear();
-   lcd.print("    USE  ME");// Print "USE ME"
+   lcd.print(" Safely Dispose");
+   lcd.setCursor(2, 1);
+   lcd.print(" Your Waste");
   }
   else { // Else close the lid of the dustbin
     servo.write(0);
